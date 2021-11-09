@@ -1,5 +1,5 @@
-# Levyetal2021_PNAS
-Stata files used to generate regression results and R code used to produce figures used in Levy et al. 2021's paper " Deforestation in the Brazilian Amazon could be halved with high market share and strong implementation of zero-deforestation commitments"
+# Levyetal2021_cattlemarketshare
+Stata files used to generate regression results and R code used to produce figures used in Levy et al. 2021's paper " Deforestation in the Brazilian Amazon could be halved by zero deforestation commitments"
 
 Contains three files:
 
