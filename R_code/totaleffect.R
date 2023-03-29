@@ -9,10 +9,10 @@ dat <- read_csv("/Users/sal9799/Downloads/rstudio-export/Levyetal2023_muni.csv")
 #add the numbers
 totdef_w <- sum(dat_r$defor*dat_r$muni_area)  # total deforestation weighted by area, post 2009 - 1.284458e+13
 totdef_r <-  sum(dat_r$defor)               # total deforestation observed, post 2009 - 4740634
-g4coef <-  -0.7206433                     # table 1 (1) & S5 (1)
-taccoef <- 0.256074                       # table 1 (1) & S5 (1)
-g4lowl <- -0.3965039                      # table 1 (1) & S5 (1)
-taclowl <- 0.4084147                      # table 1 (1) & S5 (1)
+g4coef <-  -0.7206433                     # see table 1 (1) & S5 (1) + Levyetal2023_regressions_muni.do
+taccoef <- 0.256074                       # see table 1 (1) & S5 (1) + Levyetal2023_regressions_muni.do
+g4lowl <- -0.3965039                      # see Levyetal2023_regressions_muni.do - 95th conf interval (low)
+taclowl <- 0.4084147                      # see Levyetal2023_regressions_muni.do - 95th conf interval (high)
 # also weighted by area, post 2009
 mnG4  <-  weighted.mean(dat_r$g4_ms,dat_r$muni_area)               # 0.2926364
 mnZDC <-  weighted.mean((dat_r$g4_ms+dat_r$tac_ms),dat$muni_area)  # 0.5725956
