@@ -5,6 +5,7 @@
 #' ---
 
 rm(list = ls())
+
 # packages
 library(tidyverse)
 library(sf)
@@ -17,7 +18,7 @@ select <- dplyr::select
 # Load data --------------------------------------------------------
 
 # project data - obtainable at doi: 10.5281/zenodo.5105746
-SH  <- read_csv("/Users/sal9799/Downloads/Levyetal2023_Slaughterhouse.csv")
+SH  <- read_csv("~/Downloads/Levyetal2023_Slaughterhouse.csv")
 
 #external data - obtainable at: https://supplychains.trase.earth/data (select "BRZIL - BEEF (ALL YEARS)")
 Trase <- map_dfr(list.files("~/Downloads/BRAZIL_BEEF_2.0.2_pc",pattern=".csv",full.names = TRUE),read_csv)
@@ -52,11 +53,9 @@ shouse_state <- shouse %>%
   group_by(year,STATE) %>%
   mutate(perc_tot_state = vol_tot/sum(vol_tot)*100) %>%
   mutate(perc_tot_state = vol_tot/sum(vol_tot)*100) %>%
- # group_by(year) %>%
-  #mutate(perc_tot_fl = vol_tot/sum(vol_tot)*100) %>%
   ungroup() %>%
-  add_row(ZDC="TAC",STATE="MT",year=2012,vol_tot=0,perc_tot_state=0,perc_tot_fl=0) %>%
-  add_row(ZDC="TAC",STATE="RO",year=2013,vol_tot=0,perc_tot_state=0,perc_tot_fl=0) %>%
+  add_row(ZDC="TAC",STATE="MT",year=2012,vol_tot=0,perc_tot_state=0) %>%
+  add_row(ZDC="TAC",STATE="RO",year=2013,vol_tot=0,perc_tot_state=0) %>%
   mutate(ZDC = factor(ZDC,levels=c("No ZDC","TAC","G4")),ordered=TRUE)
 
 #summarize slaughterhouse-level data to overall level dataset & join with Trase data
@@ -183,5 +182,5 @@ fig_t<-cowplot::plot_grid(toprow_t,stacks_t,nrow=2,rel_heights=c(1,0.8))
 cowplot::plot_grid(fig_t,cowplot::get_legend(RO_stack),rel_widths=c(1,0.15))
 
 # pt5: export
-ggsave("~/Downloads/Figure1.svg",
+ggsave("Figures/Figure1.svg",
        scale=1,height=2166,width = 3168,unit="px")

@@ -20,6 +20,8 @@ select <- dplyr::select
 # project data - obtainable at doi: 10.5281/zenodo.5105746
 dat <- read_csv("/Users/sal9799/Downloads/rstudio-export/Levyetal2023_muni.csv")
 
+# Prepare data for figures -----------------------------------------
+
 # PREP FOR FIGURE 3
 
 #create categorical dataset indicating if muni has >=50% G4/TAC or neither for fig 3
@@ -132,5 +134,5 @@ cowplot::plot_grid(g4_grp+theme(panel.border = element_blank()),
                    ,align = "h",nrow=1, labels = c("a.","b."),label_x=c(0.095,0.055),label_y = c(0.967,0.967),scale=0.95)
 
 #pt 4: export
-ggsave("~/Downloads/Figure3.svg",
+ggsave("Figures/Figure3.svg",
        scale=1,height=1780,width = 3162,unit="px")
