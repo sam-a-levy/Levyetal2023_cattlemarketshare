@@ -18,6 +18,10 @@ mnG4  <-  weighted.mean(dat_r$g4_ms,dat_r$muni_area)               # 0.2926364
 mnZDC <-  weighted.mean((dat_r$g4_ms+dat_r$tac_ms),dat$muni_area)  # 0.5725956
 mnTAC <-  weighted.mean(dat_r$tac_ms,dat_r$muni_area)              # 0.2799592
 
+lm(dat_r$g4_ms ~ 1, weights = dat_r$muni_area)
+
+mean(dat_r$g4_ms)
+
 # mnG4  <-  0.2960209 
 # mnZDC <-  0.5232753
 # mnTAC <-  0.2272544
