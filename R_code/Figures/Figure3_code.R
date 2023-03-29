@@ -6,6 +6,10 @@
 
 rm(list = ls())
 
+if (!"data.io" %in% .packages()) {
+  remotes::install_github("SciViews/data.io")
+}
+
 # packages
 library(tidyverse)
 library(sf)
@@ -13,12 +17,17 @@ library(geobr)
 library(cowplot)
 library(ggpubr)
 
-select <- dplyr::select
+select <- dplyr::select 
 
 # Load data --------------------------------------------------------
 
 # project data - obtainable at doi: 10.5281/zenodo.5105746
 dat <- read_csv("/Users/sal9799/Downloads/rstudio-export/Levyetal2023_muni.csv")
+
+#replace with direct link to zenodo eventually
+# dat <- data.io::read$csv("https://zenodo.org/record/2533383/files/export.csv?download=1") 
+# Note: the URL corresponds to the 'Download' button on the page
+
 
 # Prepare data for figures -----------------------------------------
 

@@ -1,7 +1,8 @@
 
 clear
 set more off
-import delimited "temp/manuscripts/Levyetal2021_PNAS_micro.csv", case(preserve)  // import command, 
+**download data from Zenodo. doi: 10.5281/zenodo.5105746
+import delimited "Levyetal2023_micro.csv", case(preserve)  // import command, 
 
 
 *********************
