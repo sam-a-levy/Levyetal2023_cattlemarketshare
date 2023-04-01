@@ -15,4 +15,12 @@ This GitHub repository is intended to be used in conjunction with the data held 
 - **Figure2_code.R** generates Figure 2 from Levy et al. 2023 (note: this figure was finished in adobe illustrator)
 - **Figure3_code.R** generates Figure 3 from Levy et al. 2023
 
+### Figures:
+- **Figure1.svg** is the SVG file of Figure 1 used in Levy et al. 2023, produced by Figure1_code.R. This file is also used to calculate G4 and TAC market share over time and for the entire study period as reported in Levy et al. 2023.
+- **Figure2.svg** is the SVG file of Figure 2 used in Levy et al. 2023, produced by Figure2_code.R. Additional work was done on this figure in Adobe Illustrator. The Illustrator output is provided in Figure2_final.jpg & Figure2_final.pdf
+- **Figure3.svg** is the SVG file of Figure 3 used in Levy et al. 2023, produced by Figure3_code.R.
+
+### Supporting_files:
+-**am_line.geojson** the Amazon biome boundary for the RO, MT, PA study region, based on IBGE's 2004 biome boundaries (the boundaries in use at the start of the study period).
+
 For a description of the variables used in the figures and analyses see Levy et al. 2023 or the README file included in Zenodo.
