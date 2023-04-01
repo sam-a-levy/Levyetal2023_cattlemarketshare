@@ -4,8 +4,13 @@
 #' Date: 2023-03-21
 #' ---
 
+#read data
 dat <- read_csv("/Users/sal9799/Downloads/rstudio-export/Levyetal2023_muni.csv")
 dat_r <- dat %>% filter(year<2019&year>2009)
+
+#replace with direct link to zenodo eventually
+# dat <- data.io::read$csv("https://zenodo.org/record/2533383/files/export.csv?download=1") 
+# Note: the URL corresponds to the 'Download' button on the page
 
 #add the numbers
 totdef_w <- sum(dat$defor*dat$muni_area)  # total deforestation weighted by area, post 2009 - 1.284458e+13
@@ -29,7 +34,7 @@ G4ef <- (expm1(g4coef)*mnG4) # -0.1502866 effect
 G4efconint <- (expm1(g4conint)*mnG4) # -0.08101656
 (G4efconint*totdef_r)/100 #-3840.698
 
-# total impact G4 = -13940.43 km2 +- 7515.015
+# total impact G4+TAC = -13940.43 km2 +- 7515.015
 ZDCef <- (expm1(g4coef)*mnZDC) #-0.2940626 effect
 (ZDCef*totdef_r)/100  #-13940.43 km2
 #confidence interval G4
