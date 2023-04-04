@@ -26,6 +26,6 @@ Additionally, Figure 2 from the publication was finished in Adobe Illustrator & 
 - **Figure3.svg** is the SVG file of Figure 3 used in Levy et al. 2023, produced by Figure3_code.R.
 
 ### Supporting_files:
--**am_line.geojson** the Amazon biome boundary for the RO, MT, PA study region, based on IBGE's 2004 biome boundaries (the boundaries in use at the start of the study period).
+- **am_line.geojson** the Amazon biome boundary for the RO, MT, PA study region, based on IBGE's 2004 biome boundaries (the boundaries in use at the start of the study period).
 
 For a description of the variables used in the figures and analyses see Levy et al. 2023 or the README file included in Zenodo.
