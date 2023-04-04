@@ -1,7 +1,12 @@
 # Levyetal2021_cattlemarketshare
 Stata files used to generate regression results and R code used to produce a) overall effects & b) all figures used in Levy et al. 2023's paper "Deforestation in the Brazilian Amazon could be halved by scaling up the implementation of zero-deforestation cattle commitments", published in Global Environmental Change.
 
-This GitHub repository is intended to be used in conjunction with the data held at 10.5281/zenodo.5105746. All R scripts can be used to access the Zenodo data directly, but stata files must be run using downloaded files from Zenodo and the location of imput files (Levyetal2023_micro.csv/ Levyetal2023_muni.csv; line 5 in both stata files) changed manually. Additionally, Figure 2 from the publication was finished in adobe illustrator & the code here only generates the maps used, rather than the full figure.
+## Using the Github repository
+This GitHub repository is intended to be used in conjunction with the data held at 10.5281/zenodo.5105746. All R scripts can be used to access the Zenodo data directly, assuming that the package `data.io` is installed. 
+
+To execute the Stata files included in this repository, you must first download the Zenodo locally and specify the location for each Stata do file (Levyetal2023_micro.csv/ Levyetal2023_muni.csv; line 5 in both Stata files). 
+
+Additionally, Figure 2 from the publication was finished in Adobe Illustrator & the code here only generates the maps used, rather than the full figure. 
 
 ## Contents
 
@@ -12,7 +17,7 @@ This GitHub repository is intended to be used in conjunction with the data held 
 ### R Code:
 - **totaleffect.R** calculates the total effects reported in the paper, based on results from Levyetal2021_regressions_muni.do
 - **Figure1_code.R** generates Figure 1 from Levy et al. 2023
-- **Figure2_code.R** generates Figure 2 from Levy et al. 2023 (note: this figure was finished in adobe illustrator)
+- **Figure2_code.R** generates Figure 2 from Levy et al. 2023 (note: this figure was finished in Adobe Illustrator & uses files sourced from IBGE's API via the `geobr` package)
 - **Figure3_code.R** generates Figure 3 from Levy et al. 2023
 
 ### Figures:

@@ -20,8 +20,9 @@ select <- dplyr::select
 # Load data --------------------------------------------------------
 
 # project data - obtainable at doi: 10.5281/zenodo.5105746
-dat_marketsh <- read_csv("/Users/sal9799/Downloads/rstudio-export/Levyetal2023_marketsharefiguredata.csv")
-SH  <- read_csv("~/Downloads/Levyetal2023_Slaughterhouse.csv")
+dat_marketsh <- data.io::read$csv("https://zenodo.org/record/5105746/files/Levyetal2023_marketsharefiguredata.csv?download=1")
+SH <- data.io::read$csv("https://zenodo.org/record/5105746/files/Levyetal2023_Slaughterhouse.csv?download=1") 
+# Note: the URL corresponds to the 'Download' button on the page
 
 #brazil geo data - taken fom IBGE using geobr package 
 munis <- read_municipality(year=2010,simplified = TRUE)
@@ -32,7 +33,7 @@ brazil <- read_country(simplified = TRUE)
 biomes <- st_read("http://data.globalforestwatch.org/datasets/54ec099791644be4b273d9d8a853d452_4.geojson") %>% st_transform(crs=st_crs(munis))
 
 #am boundary line for study region - taken from github, pre-processed by author
-am_line <- st_read("Supporting_files/am_line.geojson")
+am_line <- st_read("Supporting_files/am_line.geojson") %>% st_transform(crs=st_crs(munis))
 
 # Prepare data for figures -----------------------------------------
 

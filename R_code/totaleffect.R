@@ -5,7 +5,12 @@
 #' ---
 
 #read data
-dat <- read_csv("/Users/sal9799/Downloads/rstudio-export/Levyetal2023_muni.csv")
+
+# project data - obtainable at doi: 10.5281/zenodo.5105746
+dat <- data.io::read$csv("https://zenodo.org/record/5105746/files/Levyetal2023_muni.csv?download=1") 
+# Note: the URL corresponds to the 'Download' button on the page
+
+#drop to study years
 dat_r <- dat %>% filter(year<2019&year>2009)
 
 #replace with direct link to zenodo eventually

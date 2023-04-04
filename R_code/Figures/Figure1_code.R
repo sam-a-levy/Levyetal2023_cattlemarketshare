@@ -18,10 +18,12 @@ select <- dplyr::select
 # Load data --------------------------------------------------------
 
 # project data - obtainable at doi: 10.5281/zenodo.5105746
-SH  <- read_csv("~/Downloads/Levyetal2023_Slaughterhouse.csv")
+SH <- data.io::read$csv("https://zenodo.org/record/5105746/files/Levyetal2023_Slaughterhouse.csv?download=1") 
+# Note: the URL corresponds to the 'Download' button on the page
 
-#external data - obtainable at: https://supplychains.trase.earth/data (select "BRZIL - BEEF (ALL YEARS)")
-Trase <- map_dfr(list.files("~/Downloads/BRAZIL_BEEF_2.0.2_pc",pattern=".csv",full.names = TRUE),read_csv)
+#external data - obtainable at: https://supplychains.trase.earth/data (select "BRAZIL - BEEF (ALL YEARS)")
+trase_files_location <- "~/Downloads/BRAZIL_BEEF_2.0.2_pc"  #NOTE: YOU MUST SET THIS YOURSELF
+Trase <- map_dfr(list.files(trase_files_location,pattern=".csv",full.names = TRUE),read_csv)
 
 palette <- set_names(c("#A7A7AA","#3283BE","#1A9993FF"),nm=c("No ZDC","G4","TAC"))
 
@@ -140,7 +142,7 @@ stacks <- cowplot::plot_grid(PA_stack + ggtitle("Pará") +
                                theme(plot.title = element_text(hjust = 0.5),legend.position = "none",panel.grid.minor=element_blank(),
                                      panel.background = element_rect(fill = "transparent", colour = NA),  
                                      plot.background = element_rect(fill = "transparent", colour = NA)),
-                             RO_stack + ggtitle("Ronodônia") + 
+                             RO_stack + ggtitle("Rondônia") + 
                                theme(plot.title = element_text(hjust = 0.5),legend.position = "none",panel.grid.minor=element_blank(),
                                      panel.background = element_rect(fill = "transparent", colour = NA),  
                                      plot.background = element_rect(fill = "transparent", colour = NA)),

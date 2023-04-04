@@ -22,12 +22,8 @@ select <- dplyr::select
 # Load data --------------------------------------------------------
 
 # project data - obtainable at doi: 10.5281/zenodo.5105746
-dat <- read_csv("/Users/sal9799/Downloads/rstudio-export/Levyetal2023_muni.csv")
-
-#replace with direct link to zenodo eventually
-# dat <- data.io::read$csv("https://zenodo.org/record/2533383/files/export.csv?download=1") 
+dat <- data.io::read$csv("https://zenodo.org/record/5105746/files/Levyetal2023_muni.csv?download=1") 
 # Note: the URL corresponds to the 'Download' button on the page
-
 
 # Prepare data for figures -----------------------------------------
 
@@ -67,9 +63,9 @@ g4_def_gp <- zd %>%
 
 # pt1b: def rate where market share >= 50% - TAC
 tc_def_gp <- zd %>%
-  mutate(TACbin=lag(TACbin)) %>%
+  mutate(TACbin=lag(TACbin)) %>% #lag to match analysis
   filter(year>2009 & !is.na(TACbin)) %>%
-  mutate(year=year-1) %>%
+  mutate(year=year-1) %>% # correct year to year of ZDC
   ggplot(aes(year,def_rate)) + geom_smooth(aes(color=TACbin,fill=TACbin),method="loess",alpha=0.37)+
   scale_x_continuous(breaks=c(2010,2012,2014,2016,2018),n.breaks=5)+labs(color="TAC coverage",fill="TAC coverage",x="Year",y="Deforestation rate (%)")+
   scale_y_continuous(breaks=c(-0.2,-0.1,0.0,0.1,0.2,0.3,0.4,0.5,0.6),n.breaks=9)+#limits=c(-.1,.55),
@@ -129,8 +125,8 @@ tac_grp <- ggarrange(tc_count+theme(axis.title.y = element_blank(),panel.grid.mi
                      heights =  c(.25,.75),
                      align = 'v')
 
-g4_grp <- ggarrange(g4_count+theme(axis.title.y = element_blank(),panel.grid.minor=element_blank()),
-                    g4_def_gp+theme(axis.title.y = element_blank(),panel.grid.minor=element_blank()),
+g4_grp <- ggarrange(g4_count,
+                    g4_def_gp,
                     ncol=1,
                     nrow=2,
                     common.legend=T,
@@ -144,4 +140,4 @@ cowplot::plot_grid(g4_grp+theme(panel.border = element_blank()),
 
 #pt 4: export
 ggsave("Figures/Figure3.svg",
-       scale=1,height=1780,width = 3162,unit="px")
+       scale=1,height=1780,width = 3302,unit="px")
