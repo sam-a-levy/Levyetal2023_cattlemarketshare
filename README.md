@@ -2,7 +2,7 @@
 Stata files used to generate regression results and R code used to produce a) overall effects & b) all figures used in Levy et al. 2023's paper "Deforestation in the Brazilian Amazon could be halved by scaling up the implementation of zero-deforestation cattle commitments", published in Global Environmental Change.
 
 ## Using the Github repository
-This GitHub repository is intended to be used in conjunction with the data held at 10.5281/zenodo.5105746. All R scripts can be used to access the Zenodo data directly, assuming that the package `data.io` is installed. 
+This GitHub repository is intended to be used in conjunction with the data held at [10.5281/zenodo.5105746](https://zenodo.org/record/5105746). All R scripts can be used to access the Zenodo data directly, assuming that the package `data.io` is installed. Figure1_code.R uses files downloaded from [Trase.earth](https://trase.earth/)
 
 To execute the Stata files included in this repository, you must first download the Zenodo locally and specify the location for each Stata do file (Levyetal2023_micro.csv/ Levyetal2023_muni.csv; line 5 in both Stata files). 
 
