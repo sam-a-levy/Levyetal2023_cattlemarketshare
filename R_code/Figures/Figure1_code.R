@@ -21,7 +21,8 @@ select <- dplyr::select
 SH <- data.io::read$csv("https://zenodo.org/record/5105746/files/Levyetal2023_Slaughterhouse.csv?download=1") 
 # Note: the URL corresponds to the 'Download' button on the page
 
-#external data - obtainable at: https://supplychains.trase.earth/data (select "BRAZIL - BEEF (ALL YEARS)")
+# external data (Beef exports, Trase Brazilian Beef v2.0.2) 
+# obtainable at: https://supplychains.trase.earth/data (select "BRAZIL - BEEF (ALL YEARS)")
 trase_files_location <- "~/Downloads/BRAZIL_BEEF_2.0.2_pc"  #NOTE: YOU MUST SET THIS YOURSELF
 Trase <- map_dfr(list.files(trase_files_location,pattern=".csv",full.names = TRUE),read_csv)
 
