@@ -40,7 +40,7 @@ shouse <- SH %>%
 # Change Trase classification to match paper (i.e. treat any volume covered by G4 (i.e., G4 & TAC) as G4 only) & 
 # summarise to total over period, for study states
 trs <- Trase %>% 
-  filter(STATE %in% c("MATO GROSSO","RONDONIA","PARA")) %>%
+  filter(STATE %in% c("MATO GROSSO","RONDONIA","PARA") & BIOME == "AMAZONIA") %>%
   mutate(ZDC= ifelse(str_detect(ZERO_DEFORESTATION_BRAZIL_BEEF,"G4"),"G4",
                      ifelse(ZERO_DEFORESTATION_BRAZIL_BEEF=="NONE","No ZDC",ZERO_DEFORESTATION_BRAZIL_BEEF)) %>%
            factor(levels=c("No ZDC","TAC","G4")),ordered=TRUE) %>%
@@ -62,7 +62,7 @@ shouse_state <- shouse %>%
   mutate(ZDC = factor(ZDC,levels=c("No ZDC","TAC","G4")),ordered=TRUE)
 
 #summarize slaughterhouse-level data to overall level dataset & join with Trase data
-shouse_tot <- shouse %>% filter(year %in% 2015:2017) %>%
+shouse_tot <- shouse %>% filter(year %in% unique(Trase$YEAR)) %>%
   group_by(ZDC) %>%
   summarise(vol_tot = sum(vol,na.rm=TRUE)) %>%
   mutate(perc_tot = vol_tot/sum(vol_tot)) %>%
