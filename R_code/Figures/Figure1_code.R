@@ -22,8 +22,8 @@ SH <- data.io::read$csv("https://zenodo.org/record/5105746/files/Levyetal2023_Sl
 # Note: the URL corresponds to the 'Download' button on the page
 
 # external data (Beef exports, Trase Brazilian Beef v2.0.2) 
-# obtainable at: https://supplychains.trase.earth/data (select "BRAZIL - BEEF (ALL YEARS)")
-trase_files_location <- "~/Downloads/BRAZIL_BEEF_2.0.2_pc"  #NOTE: YOU MUST SET THIS YOURSELF
+# obtainable at: https://supplychains.trase.earth/data (select "BRAZIL - BEEF (ALL YEARS)" from BULK SUPPLY CHAIN DATA section of page)
+trase_files_location <- "~/Downloads/BRAZIL_BEEF_2.0.2_pc"  #NOTE: YOU MUST SET YOUR LOCAL LOCATION YOURSELF
 Trase <- map_dfr(list.files(trase_files_location,pattern=".csv",full.names = TRUE),read_csv)
 
 palette <- set_names(c("#A7A7AA","#3283BE","#1A9993FF"),nm=c("No ZDC","G4","TAC"))
@@ -38,7 +38,7 @@ shouse <- SH %>%
            factor(levels=c("No ZDC","TAC","G4")),ordered=TRUE) 
 
 # Change Trase classification to match paper (i.e. treat any volume covered by G4 (i.e., G4 & TAC) as G4 only) & 
-# summarise to total over period, for study states
+# summarise to total over period, for study states & biomes
 trs <- Trase %>% 
   filter(STATE %in% c("MATO GROSSO","RONDONIA","PARA") & BIOME == "AMAZONIA") %>%
   mutate(ZDC= ifelse(str_detect(ZERO_DEFORESTATION_BRAZIL_BEEF,"G4"),"G4",
